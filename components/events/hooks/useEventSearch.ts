@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 interface UseEventSearchProps {
-  onSearch: (selectedYear: string, selectedMonth: string) => void;
+  onSearch: (selectedYear: number, selectedMonth: number) => void;
 }
 
 const useEventSearch = ({ onSearch }: UseEventSearchProps) => {
@@ -10,8 +10,8 @@ const useEventSearch = ({ onSearch }: UseEventSearchProps) => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    const selectedYear = yearInputRef.current?.value ?? '';
-    const selectedMonth = monthInputRef.current?.value ?? '';
+    const selectedYear = Number(yearInputRef.current?.value) ?? 0;
+    const selectedMonth = Number(monthInputRef.current?.value) ?? 0;
     onSearch(selectedYear, selectedMonth);
   };
 

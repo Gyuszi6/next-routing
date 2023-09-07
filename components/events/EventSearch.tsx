@@ -2,7 +2,7 @@ import useEventSearch from './hooks/useEventSearch';
 import { FC } from 'react';
 
 interface EventSearchProps {
-  onSearch: (selectedYear: string, selectedMonth: string) => void;
+  onSearch: (selectedYear: number, selectedMonth: number) => void;
 }
 
 const EventSearch: FC<EventSearchProps> = ({ onSearch }) => {

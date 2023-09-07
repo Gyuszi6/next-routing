@@ -7,7 +7,7 @@ const EventsPage = () => {
   const router = useRouter();
   const { getAllEvents } = useDummy();
   const events = getAllEvents();
-  const findEvent = (year: string, month: string) => {
+  const findEvent = (year: number, month: number) => {
     const fullPath = `/events/${year}/${month}`;
     router.push(fullPath);
   };
