@@ -1,3 +1,5 @@
+import Header from '@/components/layout/Header';
+
 export interface LayoutProps {
   children: React.ReactNode;
 }
@@ -9,7 +11,8 @@ export interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className='bg-[#F8F4F2] min-h-screen overflow-x-hidden relative'>
+    <div className='bg-gray-300 min-h-screen overflow-x-hidden relative'>
+      <Header />
       <div className=''>{children}</div>
     </div>
   );

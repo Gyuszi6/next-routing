@@ -4,7 +4,7 @@ import EventItem from './EventItem';
 
 const EventList: FC<EventListProps> = ({ events }) => {
   return (
-    <div className='mt-32'>
+    <div className='mt-12'>
       <ul>
         {events.map((element) => (
           <EventItem key={element.id} event={element} />
