@@ -1,11 +1,20 @@
-const EventSearch = () => {
+import useEventSearch from './hooks/useEventSearch';
+import { FC } from 'react';
+
+interface EventSearchProps {
+  onSearch: (selectedYear: string, selectedMonth: string) => void;
+}
+
+const EventSearch: FC<EventSearchProps> = ({ onSearch }) => {
+  const { handleSubmit, yearInputRef, monthInputRef } = useEventSearch({ onSearch });
+
   return (
-    <form className='flex justify-center items-center bg-white border  w-min px-12 mx-auto mt-12 py-2 rounded shadow-md'>
+    <form onSubmit={handleSubmit} className='flex justify-center items-center bg-white border  w-min px-12 mx-auto mt-12 py-2 rounded shadow-md'>
       <div className='flex items-center'>
         <label className='mr-2 mt-0.5' htmlFor='year'>
           Year
         </label>
-        <select id='year' className='w-28 border'>
+        <select id='year' className='w-28 border' ref={yearInputRef}>
           <option value='2021'>2021</option>
           <option value='2022'>2022</option>
         </select>
@@ -14,7 +23,7 @@ const EventSearch = () => {
         <label className='mr-2 mt-0.5' htmlFor='month'>
           Month
         </label>
-        <select id='month' className='w-28 border'>
+        <select id='month' className='w-28 border' ref={monthInputRef}>
           <option value='1'>January</option>
           <option value='2'>February</option>
           <option value='3'>March</option>
